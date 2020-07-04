@@ -13,20 +13,12 @@
         style="@style/TextAppearance.MaterialComponents.Headline4"
         android:layout_width="match_parent"
         android:padding="10dp"
+        android:textStyle="italic"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
         android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:background="@drawable/splash_background"
+        android:background="@drawable/ct_bg"
         android:gravity="center"
         android:text="Category name"
         android:textColor="@color/white" />
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.cardview.widget.CardView>

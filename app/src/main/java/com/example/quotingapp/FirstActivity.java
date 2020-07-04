@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.Button;
 
@@ -19,9 +20,11 @@ public class FirstActivity extends AppCompatActivity {
 
     private Button btnCategory;
     Button btnshr,btnadd,btnprvcy,btnrate;
+    private WebView view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_first);
 
         //google ads
@@ -65,9 +68,9 @@ public class FirstActivity extends AppCompatActivity {
         btnprvcy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WebView view = new WebView(getApplicationContext());
+                view = new WebView(FirstActivity.this);
                 view.getSettings().setJavaScriptEnabled(true);
-                view.loadUrl("file:///android_asset/BrainFilter _ PrivacyPolicy.html");
+                view.loadUrl("file:///android_asset/privacy_policy.html");
                 setContentView(view);
             }
         });
@@ -100,4 +103,15 @@ public class FirstActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (view != null){
+            startActivity(new Intent(FirstActivity.this,FirstActivity.class));
+        }
+        else
+        {
+            finish();
+        }
+    }
 }

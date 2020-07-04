@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +27,8 @@ public class CategoryActivity extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference().child("Categories");
+    private InterstitialAd mInterstitialAd;
+
 
     private RecyclerView recyclerView;
     List<CategoryModel> list;
@@ -32,6 +37,7 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+        loadAds();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Categories");
@@ -48,7 +54,7 @@ public class CategoryActivity extends AppCompatActivity {
         loadingdialog.setCancelable(false);
         loadingdialog.getWindow().setBackgroundDrawable(getDrawable(R.color.white));
         loadingdialog.show();
-        final categoryAdapter adapter=new categoryAdapter(list);
+        final categoryAdapter adapter=new categoryAdapter(list,mInterstitialAd);
         recyclerView.setAdapter(adapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -69,6 +75,15 @@ public class CategoryActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+    private void loadAds() {
+
+
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_add_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
     }
 }
