@@ -2,13 +2,16 @@ package com.example.quotingapp;
 
 public class QuotesModel {
     private String Quotes;
+    private String Author;
 
     public QuotesModel() {
     }
 
-    public QuotesModel(String quotes) {
+    public QuotesModel(String quotes, String author) {
         Quotes = quotes;
+        Author = author;
     }
+
 
     public String getQuotes() {
         return Quotes;
@@ -16,5 +19,13 @@ public class QuotesModel {
 
     public void setQuotes(String quotes) {
         Quotes = quotes;
+    }
+
+    public String getAuthor() {
+        return Author;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
     }
 }
