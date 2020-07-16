@@ -1,4 +1,4 @@
-package com.example.quotingapp;
+package com.kavara.quotingapp;
 
 import java.util.List;
 

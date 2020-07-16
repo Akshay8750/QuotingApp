@@ -1,4 +1,9 @@
-package com.example.quotingapp;
+package com.kavara.quotingapp;
+
+import android.app.Dialog;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,13 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
-import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
+import com.example.quotingapp.R;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +33,7 @@ public class CategoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<CategoryModel> list;
     private Dialog loadingdialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,18 +44,18 @@ public class CategoryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Categories");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView=findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         list = new ArrayList<>();
         loadingdialog = new Dialog(this);
         loadingdialog.setContentView(R.layout.loading);
-        loadingdialog.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        loadingdialog.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         loadingdialog.setCancelable(false);
         loadingdialog.getWindow().setBackgroundDrawable(getDrawable(R.color.white));
         loadingdialog.show();
-        final categoryAdapter adapter=new categoryAdapter(list,mInterstitialAd);
+        final categoryAdapter adapter = new categoryAdapter(list, mInterstitialAd);
         recyclerView.setAdapter(adapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -77,8 +78,8 @@ public class CategoryActivity extends AppCompatActivity {
 
 
     }
-    private void loadAds() {
 
+    private void loadAds() {
 
 
         mInterstitialAd = new InterstitialAd(this);

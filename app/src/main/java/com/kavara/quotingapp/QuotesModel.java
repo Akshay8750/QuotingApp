@@ -1,4 +1,4 @@
-package com.example.quotingapp;
+package com.kavara.quotingapp;
 
 public class QuotesModel {
     private String Quotes;

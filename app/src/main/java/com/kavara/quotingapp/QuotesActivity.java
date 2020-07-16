@@ -1,4 +1,4 @@
-package com.example.quotingapp;
+package com.kavara.quotingapp;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.quotingapp.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +33,7 @@ public class QuotesActivity extends AppCompatActivity implements IFirebaseLoadDo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quotes);
-        title=findViewById(R.id.title);
+        title = findViewById(R.id.title);
         categoryName = getIntent().getStringExtra("CategoryName");
 
         title.setText(categoryName);

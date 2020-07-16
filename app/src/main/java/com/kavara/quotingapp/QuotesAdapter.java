@@ -1,5 +1,4 @@
-package com.example.quotingapp;
-
+package com.kavara.quotingapp;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -13,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.quotingapp.R;
 
 import java.util.List;
 

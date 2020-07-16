@@ -1,5 +1,4 @@
-package com.example.quotingapp;
-
+package com.kavara.quotingapp;
 class CategoryModel {
     private String categoryName;
 

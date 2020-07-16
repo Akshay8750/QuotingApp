@@ -1,7 +1,4 @@
-package com.example.quotingapp;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+package com.kavara.quotingapp;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -12,6 +9,9 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.quotingapp.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -19,12 +19,13 @@ import com.google.android.gms.ads.MobileAds;
 public class FirstActivity extends AppCompatActivity {
 
     private Button btnCategory;
-    Button btnshr,btnadd,btnprvcy,btnrate;
+    Button btnshr, btnadd, btnprvcy, btnrate;
     private WebView view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_first);
 
         //google ads
@@ -32,10 +33,9 @@ public class FirstActivity extends AppCompatActivity {
         loadAds();
 
 
-
         btnCategory = findViewById(R.id.category_btn);
         btnshr = findViewById(R.id.share_btn);
-        btnadd  =findViewById(R.id.add_btn);
+        btnadd = findViewById(R.id.add_btn);
         btnprvcy = findViewById(R.id.privecy_btn);
         btnrate = findViewById(R.id.rate_btn);
 
@@ -43,25 +43,25 @@ public class FirstActivity extends AppCompatActivity {
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstActivity.this,CategoryActivity.class));
+                startActivity(new Intent(FirstActivity.this, CategoryActivity.class));
             }
         });
-        final String appLink=("http://play.google.com/store/apps/details?id=" + this.getPackageName());
+        final String appLink = ("http://play.google.com/store/apps/details?id=" + this.getPackageName());
         btnshr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(intent.EXTRA_SUBJECT,"Send");
-                intent.putExtra(intent.EXTRA_TEXT,appLink);
-                startActivity(Intent.createChooser(intent,"Share Using"));
+                intent.putExtra(intent.EXTRA_SUBJECT, "Send");
+                intent.putExtra(intent.EXTRA_TEXT, appLink);
+                startActivity(Intent.createChooser(intent, "Share Using"));
 
             }
         });
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstActivity.this,AddQuotes.class));
+                startActivity(new Intent(FirstActivity.this, AddQuotes.class));
             }
         });
 
@@ -82,6 +82,7 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
     }
+
     private void RateApp() {
         Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -95,6 +96,7 @@ public class FirstActivity extends AppCompatActivity {
                     Uri.parse("http://play.google.com/store/apps/details?id=" + this.getPackageName())));
         }
     }
+
     private void loadAds() {
 
         AdView mAdView = findViewById(R.id.adView);
@@ -106,11 +108,9 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (view != null){
-            startActivity(new Intent(FirstActivity.this,FirstActivity.class));
-        }
-        else
-        {
+        if (view != null) {
+            startActivity(new Intent(FirstActivity.this, FirstActivity.class));
+        } else {
             finish();
         }
     }

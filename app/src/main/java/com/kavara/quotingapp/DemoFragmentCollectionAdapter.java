@@ -1,5 +1,4 @@
-package com.example.quotingapp;
-
+package com.kavara.quotingapp;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;

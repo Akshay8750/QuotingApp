@@ -3,7 +3,7 @@
     <string name="Logo_line">Find The best Quotes and shaayri here</string>
     <string name="Welcome">Welocme To the Quoting App</string>
     <string name="Add">Add Quotes </string>
-    <string name="Quotes">Category</string>
+    <string name="Quotes">Categories</string>
     <string name="Privacy">Privacy Policy</string>
     <string name="Share">Share</string>
     <string name="Rate">Rate App</string>
@@ -51,5 +51,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="interstitial_add_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="interstitial_add_id">ca-app-pub-6391502906397916/8965244430</string>
 </resources>
